@@ -1,0 +1,73 @@
+.tabla-estudiantes {
+    width: min(1100px, 92vw);
+    margin: 2.5rem auto;
+    padding: 1.5rem;
+    border-radius: 18px;
+    background: linear-gradient(160deg, #f4f8ff 0%, #eefdf7 100%);
+    border: 1px solid #d8e3f4;
+    box-shadow: 0 12px 36px rgba(20, 34, 66, 0.08);
+}
+
+.tabla-estudiantes__encabezado {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.tabla-estudiantes__encabezado h2 {
+    margin: 0;
+    color: #1f2a44;
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+}
+
+.tabla-estudiantes__encabezado p {
+    margin: 0.35rem 0 0;
+    color: #4f5f7d;
+}
+
+.tabla-estudiantes__contenedor {
+
+    overflow-x: auto;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #dbe4f2;
+}
+
+.tabla-estudiantes table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.tabla-estudiantes thead tr {
+    background: #1240a8;
+}
+
+.tabla-estudiantes th {
+    text-align: left;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.9rem 1rem;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+}
+
+.tabla-estudiantes tbody tr {
+    height: 56px;
+    border-bottom: 1px solid #e7edf7;
+}
+
+.tabla-estudiantes tbody tr:last-child {
+    border-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .tabla-estudiantes {
+        margin: 1.2rem auto;
+        padding: 1rem;
+    }
+
+    .tabla-estudiantes__encabezado h2 {
+        font-size: 1.3rem;
+    }
+}
