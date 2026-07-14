@@ -1,20 +1,41 @@
 import React from 'react';
 import './ListaEstudiantes.css'
 import { Estudiante } from '../Estudiante';
+import Modal from '../Modal';
+import Form from './Form';
+import { useState } from 'react';
+import { EstudianteCoxtext } from '../ContextoEstudiantes';
 
-function ListaEstiantes({ estudiantes, setEstudiantes }) {
+function ListaEstiantes() {
+const{
+    isModalOpen,
+    estudianteEnEdicion,
+    cerrarModal,
+    abrirCrear,
+    abrirEditar,
+    guardarDesdeFormulario,
+    estudiantes
 
-    const eliminarEstudiantes = (id) => {
-        let estudiantesLimpiar = estudiantes.filter((estudiante)=> estudiante.id != id)
-        setEstudiantes(estudiantesLimpiar)
-    }
+}=React.useContext(EstudianteCoxtext)
     return (
         <section className='tabla-estudiantes' aria-labelledby='titulo-estudiante'>
+            <Modal
+                isOpen={isModalOpen}
+                title={estudianteEnEdicion ? 'Editar alumno' : 'Nuevo alumno'}
+                description="Aqui puede crear o editar los campos del alumno."
+                onClose={cerrarModal}
+                showActions={false}
+            >
+                <Form
+                    key={estudianteEnEdicion?.id ?? 'nuevo'}
+                    initialValues={estudianteEnEdicion}
+                />
+            </Modal>
             <header className='tabla-estudiantes_encabezado'>
                 <h2 id='titulo-estudiantes'>Lista de estudiamtes</h2>
                 <p>Control y visualizacion general del grupo</p>
+                <button type="button" className="btn-nuevo" onClick={abrirCrear}>Nuevo alumno</button>
             </header>
-
             <div className='tabla-estudiantes_contenedor'>
                 <table>
                     <thead>
@@ -32,7 +53,7 @@ function ListaEstiantes({ estudiantes, setEstudiantes }) {
                     <tbody>
                         {
                             estudiantes.map((estudiante, index) => (
-                                <Estudiante key={index} {...estudiante} Oneliminar={eliminarEstudiantes} />
+                                <Estudiante key={index} {...estudiante}  onEditar={abrirEditar}  />
                             ))}
                     </tbody>
                 </table>

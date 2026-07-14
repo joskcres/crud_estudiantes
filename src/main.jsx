@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import { EstudianteProvider } from './ContextoEstudiantes/index.jsx'
+import { ListaEstiantes } from './ListaEstudiantes/index.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <EstudianteProvider>
+          <ListaEstiantes/>
+    </EstudianteProvider>
   </StrictMode>,
 )
