@@ -11,8 +11,12 @@ const VALORES_INICIALES = {
 
 function Form({ initialValues }) {
 
-	const { onSubmit:guardarDesdeFormulario,
-		onCancel:cerrarModal } = useContext(EstudianteCoxtext)
+	const {guardarDesdeFormulario,
+		cerrarModal } = useContext(EstudianteCoxtext)
+
+
+
+
 	const [formData, setFormData] = useState(() => {
 		if (!initialValues) {
 			return VALORES_INICIALES
@@ -39,7 +43,7 @@ function Form({ initialValues }) {
 	const enviarFormulario = (event) => {
 		event.preventDefault()
 
-		onSubmit?.({
+		guardarDesdeFormulario?.({
 			id: initialValues?.id,
 			nombre: formData.nombre.trim(),
 			correo: formData.correo.trim(),
@@ -123,7 +127,7 @@ function Form({ initialValues }) {
 			</div>
 
 			<div className="form-estudiante__acciones">
-				<button type="button" className="btn btn--ghost" onClick={onCancel}>
+				<button type="button" className="btn btn--ghost" onClick={cerrarModal}>
 					Cancelar
 				</button>
 				<button type="submit" className="btn btn--solid">

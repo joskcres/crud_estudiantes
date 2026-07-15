@@ -87,8 +87,8 @@ const EstudianteProvider = ({ children }) => {
             <EstudianteCoxtext.Provider value={{
                 estudiantes,
                 setEstudiantes,
-                onChangeState: editarEstado,
-                Ondelete: eliminarEstudiantes,
+                editarEstado,
+                eliminarEstudiantes,
                 guardarDesdeFormulario,
                 cerrarModal,
                 isModalOpen,
